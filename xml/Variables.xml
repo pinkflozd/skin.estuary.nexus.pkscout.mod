@@ -629,4 +629,11 @@
 		<value condition="VideoPlayer.SubtitlesEnabled">[B]$INFO[VideoPlayer.SubtitlesLanguage][/B]</value>
 		<value>[B]$LOCALIZE[1223][/B]</value>
 	</variable>
+	<!-- Banner Artwork for NextUP PVR Dialog  -->
+	<variable name="PVR_NextUP_Local_Banner_Artwork_Var"> 
+		<value condition="!String.IsEmpty(VideoPlayer.NextTitle) + Skin.HasSetting(Enable.Local.PVR.Artwork)">$VAR[PVR_Local_path]$INFO[VideoPlayer.NextTitle,,/banner.jpg]</value>
+	</variable>
+	<variable name="PVR_NextUP_Banner_SkinHelper_Var">
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.NextPlayer.Art.Banner)) + Skin.HasSetting(SkinHelper.EnablePVRThumbs)">$INFO[Window(Home).Property(SkinHelper.NextPlayer.Art.Banner)]</value>
+    </variable>
 </includes>

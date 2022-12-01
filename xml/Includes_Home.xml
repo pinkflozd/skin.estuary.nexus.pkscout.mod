@@ -406,11 +406,12 @@
 	</include>
 	<include name="WidgetListPVR">
 		<param name="item_treshold">0</param>
-		<param name="item_limit">15</param>
+		<param name="item_limit">8</param>
 		<param name="icon">$INFO[ListItem.Icon]</param>
+		<param name="icon2">$INFO[ListItem.EPGEventIcon]</param>
 		<param name="label">$INFO[ListItem.Label]</param>
 		<param name="label2">$INFO[ListItem.Title]</param>
-		<param name="info_update">0</param>
+		<param name="info_update">5000</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
@@ -425,32 +426,40 @@
 				<left>0</left>
 				<top>120</top>
 				<right>0</right>
-				<height>430</height>
+				<height>355</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
-				<itemlayout width="310" height="500" infoupdate="$PARAM[info_update]">
+				<itemlayout width="310" height="425" infoupdate="$PARAM[info_update]">
 					<control type="group">
 						<left>70</left>
 						<control type="image">
 							<width>319</width>
-							<height>340</height>
+							<height>265</height>
 							<texture>dialogs/dialog-bg-nobo.png</texture>
 							<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
-							<top>43</top>
-							<left>38</left>
-							<width>245</width>
-							<height>190</height>
+							<top>21</top>
+							<left>20</left>
+							<width>279</width>
+							<height>155</height>
 							<texture fallback="DefaultTVShows.png">$PARAM[icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
+						<control type="image">
+							<top>21</top>
+							<left>20</left>
+							<width>279</width>
+							<height>155</height>
+							<texture>$PARAM[icon2]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
 						<control type="label">
 							<left>42</left>
-							<top>247</top>
+							<top>172</top>
 							<width>245</width>
 							<height>70</height>
 							<label>$PARAM[label]</label>
@@ -461,7 +470,7 @@
 						</control>
 						<control type="label">
 							<left>42</left>
-							<top>277</top>
+							<top>202</top>
 							<width>245</width>
 							<height>65</height>
 							<label>$PARAM[label2]</label>
@@ -479,7 +488,7 @@
 						</control>
 						<control type="progress">
 							<left>20</left>
-							<top>300</top>
+							<top>225</top>
 							<width>280</width>
 							<height>1</height>
 							<texturebg></texturebg>
@@ -489,7 +498,7 @@
 						</control>
 						<control type="progress">
 							<left>20</left>
-							<top>300</top>
+							<top>225</top>
 							<width>280</width>
 							<height>1</height>
 							<texturebg></texturebg>
@@ -499,7 +508,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="310" height="500" infoupdate="$PARAM[info_update]">
+				<focusedlayout width="310" height="425" infoupdate="$PARAM[info_update]">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
@@ -511,29 +520,37 @@
 						</animation>
 						<control type="image">
 							<width>319</width>
-							<height>340</height>
+							<height>265</height>
 							<texture>dialogs/dialog-bg-nobo.png</texture>
 							<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
 							<width>319</width>
-							<height>340</height>
+							<height>265</height>
 							<texture colordiffuse="button_focus">colors/grey.png</texture>
 							<bordersize>20</bordersize>
 							<include>Animation_FocusTextureFade</include>
 						</control>
 						<control type="image">
-							<top>43</top>
-							<left>38</left>
-							<width>245</width>
-							<height>190</height>
+							<top>21</top>
+							<left>20</left>
+							<width>279</width>
+							<height>155</height>
 							<texture fallback="DefaultTVShows.png">$PARAM[icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
+						<control type="image">
+							<top>21</top>
+							<left>20</left>
+							<width>279</width>
+							<height>155</height>
+							<texture>$PARAM[icon2]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
 						<control type="label">
 							<left>42</left>
-							<top>247</top>
+							<top>172</top>
 							<width>245</width>
 							<height>70</height>
 							<label>$PARAM[label]</label>
@@ -545,7 +562,7 @@
 						</control>
 						<control type="label">
 							<left>42</left>
-							<top>277</top>
+							<top>202</top>
 							<width>245</width>
 							<height>65</height>
 							<label>$PARAM[label2]</label>
@@ -564,7 +581,7 @@
 						</control>
 						<control type="progress">
 							<left>20</left>
-							<top>300</top>
+							<top>225</top>
 							<width>280</width>
 							<height>1</height>
 							<texturebg></texturebg>
@@ -574,7 +591,7 @@
 						</control>
 						<control type="progress">
 							<left>20</left>
-							<top>300</top>
+							<top>225</top>
 							<width>280</width>
 							<height>1</height>
 							<texturebg></texturebg>

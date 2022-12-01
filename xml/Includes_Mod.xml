@@ -343,10 +343,8 @@
 		<param name="list_id" />
 		<definition>
 			<include condition="$PARAM[show_inprogress]" content="WidgetListPoster">
-				<param name="content_path" value="videodb://inprogresstvshows"/>
-				<param name="sortby" value="lastplayed"/>
-				<param name="sortorder" value="descending"/>
-				<param name="widget_header" value="$LOCALIZE[626]"/>
+				<param name="content_path" value="special://skin/playlists/recent_tvshows.xsp"/>
+				<param name="widget_header" value="Recently added TV Shows"/>
 				<param name="widget_target" value="videos"/>
 				<param name="list_id" value="$PARAM[list_id]"/>
 			</include>
@@ -628,12 +626,12 @@
 		<param name="list_id" />
 		<definition>
 			<include content="WidgetListPVR" condition="$PARAM[show_channels]">
-				<param name="content_path" value="pvr://channels/tv/*?view=lastplayed"/>
-				<param name="sortby" value="lastplayed"/>
-				<param name="sortorder" value="descending"/>
-				<param name="widget_header" value="$LOCALIZE[31016]"/>
+				<param name="content_path" value="pvr://channels/tv/Bazdara"/>
+				<param name="sortby" value="ChannelNumber"/>
+				<param name="sortorder" value="ascending"/>
+				<param name="widget_header" value="Channels"/>
 				<param name="list_id" value="$PARAM[list_id]"/>
-				<param name="info_update" value="5000"/>
+				<param name="info_update" value="10000"/>
 			</include>
 			<include content="WidgetListPVR" condition="$PARAM[show_recordings]">
 				<param name="content_path" value="pvr://recordings/tv/active?view=flat"/>
@@ -730,7 +728,7 @@
 	<include name="NextRecordings">
 		<control type="grouplist" id="$PARAM[list_id]">
 			<height>390</height>
-			<left>0</left>
+			<left>50</left>
 			<right>0</right>
 			<top>36</top>
 			<orientation>horizontal</orientation>
@@ -863,7 +861,7 @@
 		<onload condition="!$EXP[HasAddonSlot5] + System.Platform.Android">Skin.SetBool(addonslot5_show_android)</onload>	
 		<onload condition="!$EXP[HasAddonSlot5] + !System.Platform.Android">Skin.SetBool(addonslot5_show_none)</onload>	
 		<onload condition="!$EXP[HasAddonSlot6]">Skin.SetBool(addonslot6_show_pictures)</onload>
-		<onload>Skin.SetString(skin_version,1.2.1)</onload>
+		<onload>Skin.SetString(skin_version,1.1.3)</onload>
 	</include>
 	<include name="ModFontsRobotoCondensed">
 			<!-- Normal Fonts -->
